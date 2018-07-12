@@ -1,27 +1,14 @@
+;(function(){
+    var cards = [
+        '<div class="header">Title 1</div>' +
+        '<div class="footer" onclick="addCard()">Add card....</div>'
+    ];
+    var defaultCard = '<div class="card"></div>';
+    var group = document.getElementsByClassName('group')[0];
+    group.innerHTML = cards;
 
-// // function sum(a,b) {
-// //    return +a + +b;
-// // // };
-
-// // function factorial() {
-// //     for(){
-
-// //     }
-
-// // }
-
-
-// /*function sum(a,b) {
-//    return +a + +b;
-// };
-// */
-// //10!= 10*9*8*7*6*5*4*3*2*1
-
-
-// function factorial(n){
-//     for(var result=1; n; n-- ){
-//     result *= n ;
-//     }
-//     return result;
-// }
-// alert (factorial(3));
+    window.addCard = function(){
+        cards.splice(cards.length -1, 0, defaultCard);
+        group.innerHTML = cards;
+    }
+})();
