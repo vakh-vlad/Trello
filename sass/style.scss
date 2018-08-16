@@ -1,0 +1,113 @@
+*,
+*:before,
+*:after{
+box-sizing: border-box;
+}
+body{
+margin: 0;
+background: #00aecc;
+color: #000;
+/*font: 300 17px/1.5 'Roboto', sans-serif;*/
+}
+img{
+border: 0;
+}
+a
+{
+color: #000;
+text-decoration: none;
+}
+a:hover{
+text-decoration:none;
+}
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../fonts/icomoon.eot?p9jw4g');
+    src:  url('../fonts/icomoon.eot?p9jw4g#iefix') format('embedded-opentype'),
+      url('../fonts/icomoon.ttf?p9jw4g') format('truetype'),
+      url('../fonts/icomoon.woff?p9jw4g') format('woff'),
+      url('../fonts/icomoon.svg?p9jw4g#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  [class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-clock:before {
+    content: "\e94e";
+  }
+  .icon-menu3:before {
+    content: "\e9bf";
+  }
+  
+.content{
+    display: flex;
+    justify-content: space-between;
+}
+.group{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    background: #e9e9eb;
+    border-radius: 3px;
+}
+.group .header, .group .footer{
+margin: 5px 10px;
+}
+.group .footer{
+    opacity: 0.5;
+}
+.group .card{
+    margin: 10px;
+    width: 300px;
+    height: 100px;
+    background: white;
+    border-radius: 3px;
+}
+
+.card-title{
+    margin: 5px;
+}
+.card-items{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+
+}
+
+.btn-color-menu{
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 50%;
+    background: yellow;
+}
+ul{
+    display: none;
+}
+.icon-clock{
+    border-radius: 3px;
+    background: rgb(74, 243, 7);
+}
+img{
+    width: 50px;
+    height: 50px;
+    border-radius: 3px;
+
+}
