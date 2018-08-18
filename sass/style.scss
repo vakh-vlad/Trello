@@ -22,11 +22,11 @@ text-decoration:none;
 }
 @font-face {
     font-family: 'icomoon';
-    src:  url('../fonts/icomoon.eot?p9jw4g');
-    src:  url('../fonts/icomoon.eot?p9jw4g#iefix') format('embedded-opentype'),
-      url('../fonts/icomoon.ttf?p9jw4g') format('truetype'),
-      url('../fonts/icomoon.woff?p9jw4g') format('woff'),
-      url('../fonts/icomoon.svg?p9jw4g#icomoon') format('svg');
+    src:  url('../fonts/icomoon.eot?5zxbgo');
+    src:  url('../fonts/icomoon.eot?5zxbgo#iefix') format('embedded-opentype'),
+      url('../fonts/icomoon.ttf?5zxbgo') format('truetype'),
+      url('../fonts/icomoon.woff?5zxbgo') format('woff'),
+      url('../fonts/icomoon.svg?5zxbgo#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
   }
@@ -49,9 +49,16 @@ text-decoration:none;
   .icon-clock:before {
     content: "\e94e";
   }
-  .icon-menu3:before {
+  .icon-main-card-menu:before {
+    content: "\e9bd";
+  }
+  .icon-internal-card-menu:before {
     content: "\e9bf";
   }
+  .icon-dell-card:before {
+    content: "\ea0f";
+  }
+  
   
 .content{
     display: flex;
@@ -64,9 +71,17 @@ text-decoration:none;
     background: #e9e9eb;
     border-radius: 3px;
 }
+.group .header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+}
 .group .header, .group .footer{
 margin: 5px 10px;
 }
+
+
 .group .footer{
     opacity: 0.5;
 }
@@ -77,7 +92,10 @@ margin: 5px 10px;
     background: white;
     border-radius: 3px;
 }
-
+.progress-dell{
+    display: flex;
+    justify-content: space-between;
+}
 .card-title{
     margin: 5px;
 }
