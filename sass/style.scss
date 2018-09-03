@@ -22,11 +22,11 @@ text-decoration:none;
 }
 @font-face {
     font-family: 'icomoon';
-    src:  url('../fonts/icomoon.eot?5zxbgo');
-    src:  url('../fonts/icomoon.eot?5zxbgo#iefix') format('embedded-opentype'),
-      url('../fonts/icomoon.ttf?5zxbgo') format('truetype'),
-      url('../fonts/icomoon.woff?5zxbgo') format('woff'),
-      url('../fonts/icomoon.svg?5zxbgo#icomoon') format('svg');
+    src:  url('../fonts/icomoon.eot?t9qzb2');
+    src:  url('../fonts/icomoon.eot?t9qzb2#iefix') format('embedded-opentype'),
+      url('../fonts/icomoon.ttf?t9qzb2') format('truetype'),
+      url('../fonts/icomoon.woff?t9qzb2') format('woff'),
+      url('../fonts/icomoon.svg?t9qzb2#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
   }
@@ -34,7 +34,7 @@ text-decoration:none;
   [class^="icon-"], [class*=" icon-"] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'icomoon' !important;
-    speak: none;
+    // speak: none;
     font-style: normal;
     font-weight: normal;
     font-variant: normal;
@@ -55,39 +55,63 @@ text-decoration:none;
   .icon-internal-card-menu:before {
     content: "\e9bf";
   }
+  .icon-add-card:before {
+    content: "\ea0a";
+  }
   .icon-dell-card:before {
     content: "\ea0f";
   }
   
   
+  
 .content{
     display: flex;
-    justify-content: space-between;
+    // flex-direction: row;
+    // justify-content: space-between;
 }
-.group{
+.group, .group-2{
+    width: 270px;
     display: flex;
     flex-direction: column;
     margin: 10px;
     background: #e9e9eb;
     border-radius: 3px;
+    position: relative;
 }
-.group .header{
+.group .header,
+.group-2 .header{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-content: center;
 }
-.group .header, .group .footer{
+.group .header, .group .footer,
+.group-2 .header, .group-2 .footer{
 margin: 5px 10px;
 }
 
+.group .icon-add-card,
+.group-2 .icon-add-card{
+    position: absolute;
+    top: 50px;
+    right: 0;
+    padding: 10px;
+    margin: 0  -45px 0 0;
+    background: #25f00a;
+    border-radius: 50%;
 
-.group .footer{
+}
+
+
+.group .footer,
+.group-2 .footer{
     opacity: 0.5;
 }
-.group .card{
+.group .card,
+.group-2 .card
+ {
     margin: 10px;
-    width: 300px;
+    width: 250px;
     height: 100px;
     background: white;
     border-radius: 3px;
