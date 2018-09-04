@@ -2,7 +2,7 @@
 	var group = document.getElementsByClassName('group')[0];
 
 	function dellCard(group, event) {
-		// console.log(event);
+		console.log(event);
 		var card = event.target.parentNode.parentNode;
 		group.removeChild(card);
 	}	
@@ -11,6 +11,10 @@
 		var contentBlock = document.getElementsByClassName('content')[0];
 		var defaultGroup = document.createElement('div');
 		defaultGroup.className = 'group';
+
+		defaultGroup.ondrop = window.cardDrop;
+		defaultGroup.ondragover = window.onDragOver;
+
 		defaultGroup.id = contentBlock.children.length;
 		contentBlock.appendChild(defaultGroup);
 
@@ -25,24 +29,39 @@
 		groupTitle.innerText = 'Title 1';
 		headerNewGroup.appendChild(groupTitle);
 
-		var mainCardMenu = document.createElement('a');
+		var mainCardMenu = document.createElement('i');
 		mainCardMenu.className = 'icon-main-card-menu';
-		mainCardMenu.setAttribute('href', '');
 		headerNewGroup.appendChild(mainCardMenu);
+
+
+		var iconAddNewGroup = document.createElement('i');	
+		defaultGroup.appendChild(iconAddNewGroup);
 
 		//add div footer group with button addCard
 		var footerNewGroup = document.createElement('div');
 		footerNewGroup.className = 'footer';
-		footerNewGroup.setAttribute('onclick', 'addCard(\'defaultGroup.id\')');
+		footerNewGroup.setAttribute('onclick', 'addCard( ' + defaultGroup.id +')');
 		footerNewGroup.innerText = 'Add card...';
 		defaultGroup.appendChild(footerNewGroup);		
 	};
 
+	window.cardDrop = function(event){
+		console.log(event);
+	};
+	window.onDragOver = function(event){
+		event.preventDefault();
+	};
+
 	window.addCard = function (groupID) {
-		group = document.getElementById(groupID);
+		var group = document.getElementById(groupID);
 		var defaultCard = document.createElement('div');
 		defaultCard.className = 'card';
-		var lastChild = group.children[group.children.length - 1];
+		var lastChild = group.children[group.children.length - 2];
+
+		defaultCard.draggable =true;
+		defaultCard.ondragstart = function(event){
+			console.log(event);
+		};
 
 		//add div progress with dell card 
 		var progressDell = document.createElement('div');
@@ -56,15 +75,13 @@
 		progressDell.appendChild(progress);
 
 		//add dell menu card
-		var dellCardMenu = document.createElement('a');
-		dellCardMenu.className = 'icon-dell-card';
-		dellCardMenu.setAttribute('href', '');
-		// dellCardMenu.setAttribute('onclick', 'dellCard()');
+		var dellCardMenu = document.createElement('i');
+		dellCardMenu.className = 'icon-dell-card';		
+		dellCardMenu.addEventListener('click', dellCard.bind(this, group));
 		progressDell.appendChild(dellCardMenu);
 
 		//add tittle card
-		var cardTitle = document.createElement('p');
-		// var nambTitle = group.children.length -1
+		var cardTitle = document.createElement('p');		
 		cardTitle.className = 'card-title';
 		cardTitle.innerText = 'Title'+ (group.children.length -2);
 		defaultCard.appendChild(cardTitle);
@@ -79,9 +96,8 @@
 		addMenu.className = 'add-menu';		
 		cardItems.appendChild(addMenu);
 
-		var iconAddMenu = document.createElement('a');
+		var iconAddMenu = document.createElement('i');
 		iconAddMenu.className = 'icon-internal-card-menu';
-		iconAddMenu.setAttribute('href', '');
 		addMenu.appendChild(iconAddMenu);
 
 		//add color menu
@@ -89,9 +105,8 @@
 		colorMenu.className = 'color-menu';		
 		cardItems.appendChild(colorMenu);
 
-		var btnColorMenu = document.createElement('a');
-		btnColorMenu.className = 'btn-color-menu';
-		btnColorMenu.setAttribute('href', '');
+		var btnColorMenu = document.createElement('i');
+		btnColorMenu.className = 'btn-color-menu';	
 		colorMenu.appendChild(btnColorMenu);
 		
 		//add icon clock
@@ -110,9 +125,6 @@
 		avatar.setAttribute('src', './images/smile_fase.jpg');
 		avatar.setAttribute('alt','');
 		cardItems.appendChild(avatar);
-
-		var removeIcon = defaultCard.children[0].children[1];
-		removeIcon.addEventListener('click', dellCard.bind(this, group));
 		
 		group.insertBefore(defaultCard, lastChild);
 	};
