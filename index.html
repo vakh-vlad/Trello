@@ -9,16 +9,28 @@
     <title>Trello</title>
 </head>
 <body>
-    <div class="content">
-        <div class="group" id="0" ondrop="cardDrop(event)" ondragover="onDragOver(event);">
-            <div class="header">
-                <p class="group-title">Title 1</p>
-                <i class="icon-main-card-menu" ></i>                
-            </div>
-            <i class="icon-add-card"  onclick="addCardGroup()"></i>                
-            <div class="footer" onclick="addCard(0)">Add card...</div>
+    <div class=page>
+        <div class="header">
+            <form action="#" class="search">
+                <input placeholder="" type="search">
+                <input type="button" value="Go">
+            </form>    
         </div>
-    </div>
+        <div class="content">
+            <div class="container">
+                <div class="group" id="0" ondrop="cardDrop(event)" ondragover="onDragOver(event);">
+                    <div class="header-group">
+                        <p class="group-title">Title 1</p>
+                        <i class="icon-main-card-menu" ></i>                
+                    </div>
+                    <div class="card-holder">                        
+                    </div>
+                    <i class="icon-add-card"  onclick="addCardGroup()"></i>                                  
+                    <div class="footer" onclick="addCard(0)"> + Add card...</div>
+                </div>
+            </div>
+        </div>
+    </div>  
     <script src="./js/scripts/script.js"></script>    
 </body>
 </html>
